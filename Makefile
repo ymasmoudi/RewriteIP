@@ -1,6 +1,6 @@
 TARGET ?= $(notdir $(realpath .))
 
-CFLAGS +=-Wall -O1
+CFLAGS +=-Wall -O2
 
 ifeq ($(STATIC),y)
 LDFLAGS += 
@@ -8,12 +8,7 @@ else
 LDFLAGS +=-lpcap
 endif
 
-ifeq ($(DEBUG),y)
-CFLAGS +=-g -D_DEBUG
-endif 
-
 TARGET = rewrite-ip
-#$(warning Building $(TARGET))
 
 SRC ?= $(wildcard *.c)
 OBJS := $(SRC:%.c=%.o)

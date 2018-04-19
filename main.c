@@ -21,8 +21,7 @@
 	#define IP4_ADDR_LEN	4
 #endif 
 
-#define PROTO_TCP 6
-#define PROTO_UDP 17
+#define MTU_MAX 9000
 
 /* Ethernet header */
 struct sniff_ethernet {
@@ -255,7 +254,7 @@ int32_t main(int argc, char **argv )
 		
 		if( IPPROTO_TCP == ip_header->ip_p )
 		{
-			uint16_t tcp_packet[9000];
+			uint16_t tcp_packet[MTU_MAX];
 			struct sniff_tcp *tcp_header = (struct sniff_tcp*)(data + ETHER_HEADER_SIZE + IP4_HEADER_SIZE );
 
 			uint16_t tcp_len = ntohs(ip_header->ip_len) - IP4_HEADER_SIZE;

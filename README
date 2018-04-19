@@ -1,0 +1,9 @@
+
+Description:
+    rewrite-ip modifies a specific IP address in a PCAP to another one
+
+Usage:
+    rewrite-ip <pcap> <IP to change> <new IP value>
+
+Dependencies:
+    libpcap-devel
